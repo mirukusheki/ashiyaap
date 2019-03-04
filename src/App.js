@@ -20,6 +20,24 @@ class App extends Component {
     });
   };
 
+  clickedCaption = () => {
+    let clicked = this.state.timesClicked;
+    let clickString = (value) => "Atta di klik sebanyak " + value + "kali."
+
+    // if clicked is idling set idling statement
+    // if clicked just have 1 length, "sekali"
+    // sisanya ya itu
+    if (clicked === 0) return(
+      <div>Klik biar Atta ngomong "Ashiap"</div>
+    )
+    else if (clicked === 1) return(
+      <div>{ clickString("se") }</div>
+    )
+    else return(
+      <div>{ clickString(`${clicked} `) }</div>
+    )
+  }
+
   render() {
     return (
       <div className="App" onClick={e => this.playMusic()}>
@@ -33,9 +51,7 @@ class App extends Component {
               <embed src={logo} className="App-logo" style={{height: '17em'}}/>
             </div>
             <div style={{marginTop: '1em'}}>
-              {this.state.timesClicked === 0 ?
-                <div>Klik biar Atta ngomong "Ashiap".</div> :
-                <div>Atta di klik: {this.state.timesClicked} kali</div>}
+              { this.clickedCaption() }
             </div>
           </header>
           <About/>

@@ -5,7 +5,7 @@ const Video = () => {
     '?autoplay=1&mute=1&controls=0&showinfo=0&disablekb=1&modestbranding=1&autohide=1';
   return (
     <div className="video-wrapper">
-      <iframe width="1366" height="657" src={videos} frameBorder="0"/>
+      <iframe title="youtube-wrapper" src={videos} frameBorder="0"/>
     </div>
   );
 };
